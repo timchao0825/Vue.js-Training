@@ -1,13 +1,15 @@
 //Javascript es6 training
 // -------------------------------------
-//屬性縮寫
+// 屬性縮寫
 // -------------------------------------
+// es5
 // function makePoint(x,y){
 //   return{
 //     x: x,
 //     y: y,
 //   }
 // }
+// es6
 function makePoint(x,y){
   return{
     x,
@@ -18,15 +20,17 @@ function makePoint(x,y){
 //計算屬性
 // -------------------------------------
 function createObj(key , value) {
+  // es5
   // const obj = {};
   // obj[key] = value;
-  // ==
+  // es6
   const obj = {
     [key]:value,
   }
   return obj;
 }
 const person = createObj('nmae','john');
+// output
 // {
 //   name : 'john',
 // }
@@ -45,6 +49,10 @@ const options = {
 }
 // -------------------------------------
 // 解構賦值
+// #預設值
+// #忽略元素
+// #變數交換
+// #剩餘部分
 // -------------------------------------
 // 陣列解構
 const nums = [1,2,3];
@@ -112,6 +120,9 @@ function distance({x ,y}){
 
 // -------------------------------------
 // 字串模板
+// # `` backtick
+// #插入表達式 expression
+// #多行字串
 // -------------------------------------
 
 //原始寫法
@@ -153,3 +164,61 @@ ddddd
 ddddddddddddd
 ddddddd
 `;
+
+// -------------------------------------
+// 箭頭函式
+// #語法簡短
+// #自動綁定
+// #箭頭函式內部的this 與外部相同
+// #this 解說
+// -------------------------------------
+// ES5 原始寫法
+var double = function(x){
+  return x * 2;
+}
+// ES6 箭頭函式寫法
+const double = () => {
+  return x * 2;
+}
+// 如果單值的話
+const double = x => x * 2;
+
+// 範例
+// es5
+arr.map(function(elm , idx){
+  return elm + idx;
+})
+// es6
+arr.map((ele,idx) => elm + idx);
+document.addEventListener('click' , () => console.log(10));
+
+// #this
+const a = () => {
+  console.log(this);
+}
+console.log(this);
+
+var b = function(){
+  console.log(this);
+}
+console.log(this);
+
+// this 其實就是function 中的 context
+// this 是什麼東西取決於這個函式執行的情境
+// 直接執行：window(global)
+// 作為物件的成員函式執行：該物件
+// 作為dom 的偵聽函式執行：該dom
+
+var name = "tim";
+var sayMyName = function(){
+  console.log(this.name);
+}
+var teacher = {
+  name: "white",
+}
+teacher.sayMyName = sanMyName;
+sayMyName(); // tim
+teacher.sayMyName(); // white
+
+//如果使用箭頭韓式宣告sayMyName 將會已全域執行的name = "tim" 輸出
+

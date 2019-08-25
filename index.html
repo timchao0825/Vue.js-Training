@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- message -->
+    {{message}}
+    <!-- v-if -->
+    <p v-if="see">Now you see me</p>
+    <p v-else>Now you dont</p>
+    <!-- v-for -->
+    <div v-for="step in steps">{{step}}</div>
+    <div v-for="(value , index) of items">
+      {{index}} - {{value.message}} !!!!
+    </div>
+    <!-- v-on -->
+    <h1>{{count}}</h1>
+    <button v-on:click="add">+1</button>
+    
+    <input type="text" v-model="text">
+    <span>{{text}}</span>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World! first time use vue',
+        see: true,
+        items: [
+          { message: 'Foo' },
+          { message: 'Bar' }
+        ],
+        steps:[
+          'Learn JavaScript',
+          'Learn Vue',
+          'Salary Billion',
+        ],
+        count:0,
+        text:'',
+      },
+      methods:{
+        add(){
+          this.count +=1;
+        },
+      }
+    });
+  </script>
+</body>
+</html>

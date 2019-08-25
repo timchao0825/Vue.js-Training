@@ -1,0 +1,31 @@
+Vue
+===
+MVVM架構
+
+#Model
+>data
+
+#View Model
+>Vue實例
+
+#View
+>DOM
+===
+透過view（dom）的event來控制，來影響View Model
+再透過view model 去取得model裡面的資料
+
+===
+Vue學習分三塊
+
+Vue模板
+
+Vue實例
+
+Vue組件
+
+===
+命令式的寫法：jQuery 
+一個指令一個動作，直到達成目標
+
+聲明式的寫法：主流框架React , Vue , Angular
+給一個目標．程式會自動執行目標
