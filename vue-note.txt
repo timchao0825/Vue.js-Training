@@ -31,3 +31,20 @@ Vue組件
 給一個目標．程式會自動執行目標
 
 ===
+vue 語法學習列表
+---------------
+v-if
+//判斷式子
+v-else
+v-for
+//迴圈式子
+v-on
+縮寫>>>> @click
+//觸發function(或是監聽事件用的)
+v-bind
+縮寫>>>> :checked
+//綁定屬性專用的式子 ex:checked="true"
+
+
+v-on
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+</head>
+<body>
+  <div id="app">
+     <!-- 縮寫 -->
+    <input type="checkbox" checked="" :checked="count%2===0">
+    <!-- <input type="checkbox" checked="" v-bind:checked="count%2===0"> -->
+    <!-- 縮寫 -->
+    <button @click="toggle"></button>
+    <!-- <button v-on:click="toggle"></button> -->
+    <div>
+      {{count}}
+    </div>
+    <button v-on:click="add">ADD</button>
+
+    <!-- 雙向綁定 -->
+    <input type="text" v-model="text">
+    <br>
+    {{text}}
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        text: 'Hello!',
+        name: '<h1>Tim!</h1>',
+        count:0,
+      },
+      methods: {
+        add(){
+          this.count += 1;
+        },
+        toggle(){
+          this.selected = !this.selected;
+        }
+      },
+    })
+  </script>
+</body>
+</html>
