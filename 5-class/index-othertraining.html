@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <label for="">
+      <!-- <input type="checkbox" :checked="a" @change="select('a')"> -->
+      <input type="checkbox" v-model="a"> 
+      <span>a</span>
+    </label>
+    <label for="">
+        <!-- <input type="checkbox" :checked="b" @change="select('b')"> -->
+        <input type="checkbox" v-model="b">
+        <span>b</span>
+      </label>
+      <label for="">
+          <!-- <input type="checkbox" :checked="c" @change="select('c')"> -->
+          <input type="checkbox" v-model="c">
+          <span>c</span>
+        </label>
+      <br>
+        <span>{{selected}}</span>
+  </div>
+  <script>
+    // single source of truth training
+    // exactly
+    const vm = new Vue({
+      el: '#app',
+      data:{
+        a:false,
+        b:false,
+        c:false,
+      },
+      computed: {
+        selected(){
+          return ['a','b','c'].filter(item => this[item]);
+          // const result = [];
+          // if(this.a) result.push('a');
+          // if(this.b) result.push('b');
+          // if(this.c) result.push('c');
+          // return result;
+        }
+      },
+    })
+
+    // wrong example ----
+    // const vm = new Vue({
+    //   el: '#app',
+    //   data:{
+    //     a:false,
+    //     b:false,
+    //     c:false,
+    //     selected:[],
+    //   },
+    //   methods: {
+    //     select(item){
+    //       const idx = this.selected.indexOf(item);
+    //       if(idx === -1){
+    //         this.selected.push(item);
+    //       }else{
+    //         this.selected.splice(idx,1);
+    //       }
+    //     }
+    //   },
+    // })
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="input.a">
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+        value:0,
+        b:0,
+        input:{
+          a:'',
+        },
+      },
+      watch:{
+        // value(val,oldVal){
+        //   console.log(`${oldVal} -> ${val}`);
+        // }
+        // 進階用法
+        // 將watch value設定成物件
+        input:{
+          handler(val , oldVal){
+            console.log(`${oldVal.a} -> ${val.a}`);
+          },
+          // immediate:true, // vue實例建立的情況下馬上監聽
+          deep:true, //監聽物件或陣列任何內部項目發生改變時才監聽
+        },
+      },
+    })
+  </script>
+</body>
+</html>

@@ -36,15 +36,107 @@ vue 語法學習列表
 v-if
 //判斷式子
 v-else
+
 v-for
 //迴圈式子
+
 v-on
 縮寫>>>> @click
 //觸發function(或是監聽事件用的)
+
 v-bind
 縮寫>>>> :checked
 //綁定屬性專用的式子 ex:checked="true"
 
+===
+vue 實例 instance
+// 類別 class
+const vm = new Vue({
 
-v-on
+})
 
+// 掛載 mount 
+###只會掛載到第一個元素
+const vm = new Vue({
+  el: '#app', <<< 掛載選擇
+  data: {
+    msg:'hello',
+  },
+});
+or
+vm.$mount('#app');
+
+// 模板 template
+// 會忽略html裡面的元素，將直接塞入vue template裡面的值
+html
+  <div id="#app"></div>
+
+const vm = new Vue({
+  el: 'app',
+  template:"<div><h2>{{msg}}</h2></div>",
+  data:{
+    msg:'hello!',
+  }
+});
+
+// 狀態 data
+// 型態 物件
+const vm = new Vue({
+  el: 'app',
+  data:{
+    x: 1,
+    y: 2,
+  }
+});
+
+or
+const data = {
+  x:1,
+  y:2,
+}
+const vm = new Vue({
+  el: 'app',
+  data,
+});
+// usage
+vm.x; // 1
+vm.x = 3; // 3
+
+// 方法 methods
+// 型態 物件裡頭放函式
+<div id="app">
+  <h1>{{count}}</h1>
+  <button v-on:click="add">+1</button>
+</div>
+
+const vm = new Vue({
+  el: '#app',
+  data:{
+    count:0,
+    step:1,
+  },
+  methods:{
+    add(){
+      this.count += 1;
+    },
+  }
+})
+
+// 計算屬性 Computed
+// 設定的屬性無法和data衝突命名
+
+// ex index-computed.html
+// 深入學習參考文章
+// https://cythilya.github.io/2017/04/15/vue-computed/ 
+
+
+// 偵聽器 watch
+// 型態 物件，可以宣告函式
+// watch命名時要跟data名字相同
+// 能用computed就不要用watch
+// 深入學習參考文章
+// https://cythilya.github.io/2017/04/15/vue-watch/
+
+
+
+// 生命週期 life cycle
