@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+    body{
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    #app{text-align: center;}
+    .submit{
+      background-color: #28a745;
+      color:white;
+      border:none;
+      border-radius: 8px;
+      padding:4px 8px;
+    }
+    .submit.disable{
+      background-color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="text">
+    <button :class="btnClass">Submit</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+        text:'',
+        // 也可以綁定一個陣列
+        // btnClass:[
+        //   'submit',
+        //   'disabled'
+        // ]
+      },
+      computed: {
+        btnClass(){
+          if(this.text.length===0){
+            return{
+              submit:true,
+              disable:true,
+            }
+          }else{
+            return{
+              submit:true,
+              disabled:false,
+            }
+          }
+        }
+      },
+    })
+  </script>
+</body>
+</html>

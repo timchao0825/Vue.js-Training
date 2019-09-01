@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: center; padding:20px; border:1px solid red;}
+    </style>
+</head>
+<body>
+  <div id="app">
+    <input type="checkbox" v-model="checked1">
+    <input type="checkbox" v-model="checked2">
+    <input type="checkbox" v-model="checked3">
+    <h1 v-if="checked1">測試V if 用法(check1)</h1>
+    <h1 v-else-if="checked2">測試V if 用法(check2)</h1>
+    <!-- rendor 多元素時可用template -->
+    <!-- <template v-if="checked">
+        <h1>測試V if 用法</h1>
+        <h1>測試V if 用法</h1>
+        <h1>測試V if 用法</h1>
+    </template> -->
+    <!-- v else -->
+    <h2 v-else>V else 用法</h2>
+    <!-- v show 不能用 v-else -->
+    <!-- v show 不能用 template -->
+    <h3 v-show="checked3"> v show 的用法</h3>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        checked1:false,
+        checked2:false,
+        checked3:false,
+      },
+    })
+  </script>
+</body>
+</html>

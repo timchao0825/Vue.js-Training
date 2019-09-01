@@ -12,7 +12,8 @@ MVVM架構
 >DOM
 ===
 透過view（dom）的event來控制，來影響View Model
-再透過view model 去取得model裡面的資料
+view model 接收操作之後修改model資料的內容
+變更之後再透過 view model 再去修改dom的資料內容
 
 ===
 Vue學習分三塊
@@ -36,6 +37,7 @@ vue 語法學習列表
 v-if
 //判斷式子
 v-else
+// v-else 一定要接在v-if元素之後
 
 v-for
 //迴圈式子
@@ -47,6 +49,9 @@ v-on
 v-bind
 縮寫>>>> :checked
 //綁定屬性專用的式子 ex:checked="true"
+// v-bind 綁定屬性也可以是陣列
+// 例如 btnclass:['submit','disabled']
+
 
 ===
 vue 實例 instance
