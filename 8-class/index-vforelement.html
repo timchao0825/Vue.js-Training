@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: center; padding:20px; border:1px solid red;}
+      .line{
+        display: flex;
+        margin:5px 0px;
+        height: 2px;
+        width: 100%;
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <ol>
+      <li v-for="item in todo">{{item}}</li>
+    </ol> -->
+    <select name="" id="">
+      <!-- <option v-for="month in months">{{month}}</option> -->
+      <!-- 
+        進階用法 
+        如果想加入索引數字
+        可在v-for加入小括號（month , {自定義名稱}）為索引數字
+        如果要從某個數值開始
+        直接在:value 加入算數
+      -->
+      <option v-for="(month , index) in months" :value="index">{{month}}</option>
+    </select>
+    <div class="line"></div>
+    <!-- 
+      細節處理
+      如果物件用v-for的話不一定會按照你的順序列出
+      如例：
+     -->
+    <div v-for="(value,key) in man">
+      {{key}} - {{value}}
+    </div>
+    <div class="line"></div>
+    <!-- 
+      細節處理
+      如果想要按照你所想要的順序用v-for做輸出
+      建議使用陣列形式，如例：
+     -->
+     <div v-for="item in manArray">
+      {{item.prop}} - {{item.value}}
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        todo:[
+          'learning JavaScript',
+          'learning Vue Js',
+          'Vote Resume',
+          'Get Good Salary'
+        ],
+        months:[
+          // 1,2,3,4,5,6,7,8,9,10,11,12
+          'Jan' , 'Feb' , 'March' , 'Apr' , 'May' , 'Jun'
+        ],
+        man:{
+          name: 'test123',
+          id:'test',
+          age:22,
+          password:'1234567',
+          18 : 'test elm',
+          10 : 'test elm 2',
+          5 : 'test elm 3'
+        },
+        manArray:[
+          {prop:'name',value:'man array'},
+          {prop:'id',value:'test 123'},
+          {prop:'age',value:'28'},
+          {prop:'18',value:'test elm'},
+          {prop:'10',value:'test elm 2'},
+          {prop:'5',value:'test elm 3'},
+        ],
+      },
+    })
+  </script>
+</body>
+</html>
