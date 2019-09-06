@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: center; padding:20px; border:1px solid red;}
+      .line{
+        display: flex;
+        margin:5px 0px;
+        height: 2px;
+        width: 100%;
+        background-color: red;
+      }
+      .img{
+        width: 100%;
+        height: 250px;
+        background-size:cover;
+        background-position: center center;
+      }
+      /* 
+      CSS 樣式規劃的部分就忽略
+      主要以Vue js學習為主 ..... 
+       */
+    </style>
+</head>
+<body>
+  <div id="app">
+    <div v-for="lession in lessions">
+        <!-- <img :src="lession.img" alt=""> -->
+        <div class="img" :style="imgStyle(lession.img)"></div>
+        <a :href="lession.url">
+            <h1>{{lession.title}}</h1>
+        </a>
+        <span>{{lession.teacher}}</span>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+          lessions:[],
+      },
+      methods:{
+          imgStyle(imgUrl){
+              return{
+                backgroundImage:`url(${imgUrl})`,
+              };
+          },
+      },
+      mounted(){
+        fetch('./data.json')
+          .then(res => res.json())
+          .then(lessions => this.lessions = lessions);
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: center; padding:20px; border:1px solid red;}
+      .line{
+        display: flex;
+        margin:5px 0px;
+        height: 2px;
+        width: 100%;
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <ul>
+        <li v-for="num in nums">{{num}}</li>
+    </ul>
+    <button @click="action">YA</button>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        // nums:[1,2,3,4,5,6] 陣列
+        nums:{
+            x:10,
+            y:20,
+        }
+      },
+      methods:{
+          action(){
+            // this.nums.push(); 塞入一個
+            // this.nums.pop(); 最後跑一個出去
+            // this.nums.shift(); 從前面跑一個出去
+            // this.nums.unshift(); 從前面塞入
+            // this.nums.reverse();
+            // this.splice(idx , length)
+            // 在陣列的什麼位置吐出幾個（長度）的東西出來
+            // this.splice(2 , 1 , 9 , 8 , 7)
+            // 吐出之後塞入後面的數值（9,8,7）
+
+            // this.nums[0] = 10; 這個操作會無反應
+            // 取代的方法為 splice
+            // this.nums.splice(1 , 2 , 10);
+
+            //this.nums.splice(3); 三位之後的陣列數值全部吐出
+            //slice(from , to) 從第幾位到第幾位吐出
+            // this.nums = this.nums.slice(1 , 2);
+
+            // 物件形式練習
+            // this.num.z = 30; 這個操作會無反應
+            // set 這個操作是指定本來沒有的東西
+            Vue.set(this.nums , 'z' , 30);
+          }
+      }
+    })
+  </script>
+</body>
+</html>

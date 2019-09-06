@@ -156,3 +156,14 @@ const vm = new Vue({
 
 
 // 生命週期 life cycle
+全部的生命週期掛鉤依序如下 (請參照清單下的圖)：
+  beforeCreate：實體初始化。
+  Created：實體建立完成。資料 $data 已可取得，但 $el 屬性還未被建立。
+  beforeMount：執行元素掛載之前。
+  mounted：元素已掛載， $el 被建立。
+  beforeUpdate：當資料變化時被呼叫，還不會描繪 View。
+  updated：DOM 的更新已經完成，View 被顯示在畫面上。
+  activated：如果有設定 keep-alive，這個掛鉤會被呼叫。
+  deactivated：停用 keep-alive時被呼叫。
+  beforeDestroy：實體還可使用。
+  destroyed：實體銷毀。所有綁定被解除、事件偵聽被移除、子實體也被銷毀。
