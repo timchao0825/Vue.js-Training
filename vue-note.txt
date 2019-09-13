@@ -63,6 +63,15 @@ v-bind
 // v-bind 綁定屬性也可以是陣列
 // 例如 btnclass:['submit','disabled']
 
+v-model
+雙向綁定資料
+
+v-model
+==兩個處理方式
+v-model => :value="message" @input="function1"
+function(evt){
+  this.message = evt.tartget.value
+}
 
 ===
 vue 實例 instance
@@ -167,3 +176,43 @@ const vm = new Vue({
   deactivated：停用 keep-alive時被呼叫。
   beforeDestroy：實體還可使用。
   destroyed：實體銷毀。所有綁定被解除、事件偵聽被移除、子實體也被銷毀。
+
+
+
+// json 介紹
+可有物件、陣列、數字、字串
+
+
+// 事件處理
+可以監聽兩個以上的事件
+@click
+@mouseover
+@mouseout
+@mousedown
+@mouseup
+@mousemove
+
+//偵聽按鍵事件
+@keydown 後面加 .enter 偵聽enter按鍵
+是Vue的修飾符語法糖
+
+prevent: evt.preventDefault()
+stop: evt.stopPropagation()
+self: 只有自己這層觸發的才算, children 不會觸發
+once: 只有第一次有效
+keydown.<keyCode or KeyName>
+ex: @keydown.enter || @keydown.13
+
+
+修飾符的組合
+@keydonw.a.prevent
+
+prevent: evt.preventDefault()
+stop: evt.stopPropagation()
+self: 只有自己這層觸發的才算, children 不會觸發
+once: 只有第一次有效
+keydown.<keyCode or KeyName>
+ex: @keydown.enter || @keydown.13
+
+// 可以保留換行字串的css style
+white-space: pre;
