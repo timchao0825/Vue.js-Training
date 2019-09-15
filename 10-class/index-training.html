@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: left; padding:20px; border:1px solid red;}
+      .line{
+        display: flex;
+        margin:5px 0px;
+        height: 2px;
+        width: 100%;
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <form @submit.prevent="submit">
+      <label>標題</label>
+      <input type="text" v-model="title">
+      <br>
+
+      <label>URL</label>
+      <input type="text" v-model="url">
+      <br>
+
+      <label>講師</label>
+      <select name="" id="" v-model="teacher">
+        <option v-for="teacher in teachers" :value="teacher">{{teacher}}</option>
+      </select>
+      <br>
+
+      <label>完成</label>
+      <input type="checkbox" name="" id="">
+      <br>
+
+      <label>圖片</label>
+      <input type="file" accept="image/*" @change="fileSelected">
+      <br>
+      <img v-if="image" :src="image" width="200">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const API = "";
+    new Vue({
+      el:'#app',
+      data:{
+        title:'',
+        url:'',
+        teachers:['scars','eason','jack','claire'],
+        teacher:'',
+        completed:false,
+        image:'',
+        lessons:[],
+      },
+      methods: {
+        fileSelected(evt){
+          const file = evt.target.files.item(0);
+          const reader = new FileReader();
+          reader.addEventListener('load',this.imageLoaded);
+          reader.readAsDataURL(file);
+        },
+        imageLoaded(evt){
+          this.image = evt.target.result;
+        },
+        submit(){
+          $.post(API, {
+            title: this.title,
+            url: this.url,
+            teacher: this.teacher,
+            completed: this.completed,
+            image: this.image
+          }).then(() => {
+            this.title = "";
+            this.url = "";
+            this.teacher = "";
+            his.completed = false;
+            this.image = "";
+            this.loadLessons();
+          })
+        },
+        loadLessons() {
+          // Promise;
+          $.get(API).then(lessons => this.lessons = lessons);
+        }
+      },
+      mounted() {
+        this.loadLessons();
+      },
+    })
+  </script>
+</body>
+</html>

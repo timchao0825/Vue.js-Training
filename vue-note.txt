@@ -11,9 +11,9 @@ MVVM架構
 #View
 >DOM
 ===
-透過view（dom）的event來控制，來影響View Model
-view model 接收操作之後修改model資料的內容
-變更之後再透過 view model 再去修改dom的資料內容
+透過view（dom）的 event 來控制，來影響View Model
+view model 接收操作之後修改 model 資料的內容
+變更之後再透過 view model 再去修改 dom 的資料內容
 
 ===
 Vue學習分三塊
@@ -40,7 +40,7 @@ v-else
 // v-else 一定要接在v-if元素之後
 
 v-for
-//迴圈式子
+// 迴圈式子
 // item in {自定義的data} 
 // 什麼 in 什麼
 
@@ -50,7 +50,6 @@ v-for
 // 如果要從某個數值開始，直接在:value 加入算數
 
 // 細節處理
-// 
 
 
 v-on
@@ -59,7 +58,7 @@ v-on
 
 v-bind
 縮寫>>>> :checked
-//綁定屬性專用的式子 ex:checked="true"
+// 綁定屬性專用的式子 ex:checked="true"
 // v-bind 綁定屬性也可以是陣列
 // 例如 btnclass:['submit','disabled']
 
@@ -151,7 +150,7 @@ const vm = new Vue({
 // 設定的屬性無法和data衝突命名
 
 // ex index-computed.html
-// 深入學習參考文章
+// >>深入學習參考文章
 // https://cythilya.github.io/2017/04/15/vue-computed/ 
 
 
@@ -159,7 +158,7 @@ const vm = new Vue({
 // 型態 物件，可以宣告函式
 // watch命名時要跟data名字相同
 // 能用computed就不要用watch
-// 深入學習參考文章
+// >>深入學習參考文章
 // https://cythilya.github.io/2017/04/15/vue-watch/
 
 
@@ -214,5 +213,14 @@ once: 只有第一次有效
 keydown.<keyCode or KeyName>
 ex: @keydown.enter || @keydown.13
 
+v-model modifier (v-model 修飾符組合)
+  lazy: trigger when onBlur
+  number: parseInt() // 將字串轉成number
+  trim: .trim() // 將前後空白移除
+
+
 // 可以保留換行字串的css style
 white-space: pre;
+
+input:file 無法使用 v-model，需用@change
+
