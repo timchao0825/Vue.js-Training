@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: left; padding:20px; border:1px solid red;}
+      .line{
+        display: flex;
+        margin:5px 0px;
+        height: 2px;
+        width: 100%;
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="content='lessons'">Lessons</button>
+    <button @click="content='class'">Class</button>
+    <br>
+    <keep-alive>
+      <component :is="content"></component>
+    </keep-alive>
+  </div>
+  <script>
+    // global 組件
+    Vue.component('lessons',{
+      template: `
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      `,
+    });
+    Vue.component('class',{
+      template: `
+        <form>
+          <input type="text" placeholder="123">
+        </form>
+      `,
+    });
+    new Vue({
+      el:'#app',
+      data:{
+        content:'lessons',
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <style>
+      body{
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      #app{text-align: left; padding:20px; border:1px solid red;}
+      .line{
+        display: flex;
+        margin:5px 0px;
+        height: 2px;
+        width: 100%;
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <my-first-component></my-first-component> -->
+  </div>
+
+  <script>
+  'my-first-component' // kebab-case (串烤)
+  'myFirstComponent' // camelCase (小駝峰式命名法)
+  'MyFirstComponent' // PascalCase (大駝峰式命名法)
+  Vue.component('myFirstComponent',{
+      template: `
+        <h1>Hello !</h1>
+      `,
+    });
+    new Vue({
+      el:'#app',
+      data:{
+      },
+      template:`
+        <div id="app">
+          <myFirstComponent></myFirstComponent>
+        </div>
+      `,
+    });
+  </script>
+</body>
+</html>

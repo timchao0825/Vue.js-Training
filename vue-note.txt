@@ -177,7 +177,6 @@ const vm = new Vue({
   destroyed：實體銷毀。所有綁定被解除、事件偵聽被移除、子實體也被銷毀。
 
 
-
 // json 介紹
 可有物件、陣列、數字、字串
 
@@ -194,14 +193,6 @@ const vm = new Vue({
 //偵聽按鍵事件
 @keydown 後面加 .enter 偵聽enter按鍵
 是Vue的修飾符語法糖
-
-prevent: evt.preventDefault()
-stop: evt.stopPropagation()
-self: 只有自己這層觸發的才算, children 不會觸發
-once: 只有第一次有效
-keydown.<keyCode or KeyName>
-ex: @keydown.enter || @keydown.13
-
 
 修飾符的組合
 @keydonw.a.prevent
@@ -224,3 +215,22 @@ white-space: pre;
 
 input:file 無法使用 v-model，需用@change
 
+
+Vue組件 (Vue component)
+// 如果需要保持組件的資料保存，可以使用keep-alive
+<keep-alive></keep-alive>
+
+組件命名學
+'my-first-component' // kebab-case (串烤)
+'myFirstComponent' // camelCase (小駝峰式命名法)
+'MyFirstComponent' // PascalCase (大駝峰式命名法)
+
+直接在html 裡使用 Component 只能用 kebab-case 命名方式 
+但是在 template 裡使用的話就都可以(Camel, Pascal)
+template 中的 component 可以 self closeing
+
+
+// ==========================================================
+JS功課列表
+fetch 
+promise
