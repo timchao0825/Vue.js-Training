@@ -235,6 +235,9 @@ template 中的 component 可以 self closeing
 同步：一段一段執行順暢
 
 
+// prop
+html 模版裡 component 的屬性名稱不可寫成 myMessage ，要用 my-message
+template 字串模版 component 屬性名稱則可接受 myMessage
 
 
 // ==========================================================
