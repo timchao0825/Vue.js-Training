@@ -30,22 +30,21 @@
 <body>
   <div id="app">
     <!-- <my-component message="hello" test="test"></my-component> -->
-    <post v-for="text in posts" :text=text></post>
+    <post v-for="post in posts" :text="post.text" :author="post.author"></post>
   </div>
   <script>
     new Vue({
       el:'#app',
       data:{
         posts:[
-          'hello',
-          'world',
+          {text:'hello',author:'John'},
+          {text:'world',author:'Jack'},
         ],
-        // text:'hello',
       },
       components:{
         post:{
-          props: ['text'],
-          template: '<div>{{text}}</div>',
+          props: ['author','text'],
+          template: '<div>{{author}}: {{text}}</div>',
         },
       },
     });
