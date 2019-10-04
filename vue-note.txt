@@ -238,7 +238,40 @@ template 中的 component 可以 self closeing
 // prop
 html 模版裡 component 的屬性名稱不可寫成 myMessage ，要用 my-message
 template 字串模版 component 屬性名稱則可接受 myMessage
+冒號：動態綁定props，就可以呈現data裡面的屬性內容
 
+驗證
+1.需引用develop js (不能用min.js)
+Example:https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js
+2.
+將props寫成一個物件形式
+props:{ start:Number}
+Number為資料形式，更多資料形式如下
+String
+Number
+Boolean
+Array
+Object
+Date
+Function
+Symbol
+3.
+props裡面的prop也可以是一個物件
+如：props:{
+start:{
+type:Number, ->型態
+default:0, ->預設值
+validator(value){ ->設定props的值的限制
+return value<=10
+}
+}}
+4.
+default也可以是一個函式，這樣就不用限定在一個數值
+而是而是根據其他的地方的數值，去動態改變
+5.
+props的驗證是發生在組件建立之前
+所以裡面不會有this.XXX的內容
+(data、method等都還沒建立)
 
 // ==========================================================
 JS功課列表
