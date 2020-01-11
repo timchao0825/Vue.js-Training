@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <input type="checkbox" v-bind:checked="selected">
+    <br>
+    <button v-on:click="toggle">Toggle</button>
+  </div>
+
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        selected: false,
+      },
+      methods: {
+        toggle(){
+          this.selected = !this.selected;
+        }
+      },
+    })
+  </script>
+</body>
+</html>
