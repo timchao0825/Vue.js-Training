@@ -10,14 +10,17 @@
 </head>
 <body>
   <div id="app">
+    <h1>{{msg}}</h1>
     <h1>{{count}}</h1>
-    <button v-on:click="add">+{{step}}</button>
+    <button @click="add">+{{step}}</button>
   </div>
 
   <script>
     new Vue({
       el: '#app',
+      // template:'<div id="app">{{msg}}</div>',
       data:{
+        msg:'hello',
         count:0,
         step:1,
       },
